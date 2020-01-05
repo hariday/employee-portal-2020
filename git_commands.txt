@@ -1,0 +1,50 @@
+to intialize .git where all projects are kept (project directory)
+git init
+git config --global user.name hariday
+git config --global user.email kannoujia.hariday@gmail.com
+git add <file_name>   #to stage specified file at a time 
+git add . # to add all files in current directory at a time
+git commit -m "commit message"
+
+###to add local repository to remote repository
+
+git remote add origin https://github.com/hariday/employee-portal-2020.git
+# Sets the new remote
+$ git remote -v
+# Verifies the new remote URL
+# Pushes the changes in your local repository up to the remote repository you specified as the origin
+$ git push origin master(if not work then      $git push origin master --force)
+
+###to create branch
+To create a new branch (local branching)and switch to it at the same time, you can run the git checkout command with the -b switch:
+The following commands are used for creating the local branches:
+
+$ git checkout -b <branch_name>
+Ex .
+Switched to a new branch "test2020"
+This is shorthand for:
+$ git branch test2020
+$ git checkout test2020
+
+This is followed by creating remote branches:
+$ git push origin test0120
+$ git push origin dev0120
+
+
+##Rename branch
+1. Rename your local branch.
+If you are on the branch you want to rename:
+git branch -m new-name
+Ex . 
+git branch -m test0120
+
+If you are on a different branch:
+git branch -m old-name new-name
+
+2. Delete the old-name remote branch and push the new-name local branch.
+git push origin :old-name new-name
+
+3. Reset the upstream branch for the new-name local branch.
+Switch to the branch and then:
+git push origin -u new-name
+
