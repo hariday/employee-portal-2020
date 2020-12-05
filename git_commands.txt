@@ -88,4 +88,4 @@ Continuing Where You Left Off
 As already mentioned, Git's Stash is meant as a temporary storage. When you're ready to continue where you left off, you can restore the saved state easily:
 
 $ git stash pop
-The "pop" flag will reapply the last saved state and, at the same time, delete its representation on the Stash (in other words: it does the clean-up for you).
+The "pop" flag will re-apply the last saved state and, at the same time, delete its representation on the Stash (in other words: it does the clean-up for you).
