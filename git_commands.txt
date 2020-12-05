@@ -1,0 +1,91 @@
+to intialize .git where all projects are kept (project directory)
+git init
+git config --global user.name hariday
+git config --global user.email kannoujia.hariday@gmail.com
+git add <file_name>   #to stage specified file at a time 
+git add . # to add all files in current directory at a time
+git commit -m "commit message"
+
+###to add local repository to remote repository
+
+git remote add origin https://github.com/hariday/employee-portal-2020.git
+# Sets the new remote
+$ git remote -v
+# Verifies the new remote URL
+# Pushes the changes in your local repository up to the remote repository you specified as the origin
+$ git push origin master(if not work then      $git push origin master --force)
+
+###to create branch
+To create a new branch (local branching)and switch to it at the same time, you can run the git checkout command with the -b switch:
+The following commands are used for creating the local branches:
+
+$ git checkout -b <branch_name>
+Ex .
+Switched to a new branch "test2020"
+This is shorthand for:
+$ git branch test2020
+$ git checkout test2020
+
+
+Note : origin is alias of remote url.
+
+## to pull from master
+$ git pull origin <branch_name> 
+Ex . 
+$ git pull origin master (to update the current working branch of local repository from remote branch master)
+$ git pull origin test0120 ( to update the current working branch of local repository from remote branch test0120)
+$ git pull origin dev0120 ( to update the current working branch of local repository from remote branch dev0120)
+
+
+This is followed by creating remote branches:
+$ git push origin test0120
+$ git push origin dev0120
+
+
+##Rename branch
+1. Rename your local branch.
+If you are on the branch you want to rename:
+git branch -m new-name
+Ex . 
+git branch -m test0120
+
+If you are on a different branch:
+git branch -m old-name new-name
+
+2. Delete the old-name remote branch and push the new-name local branch.
+git push origin :old-name new-name
+
+3. Reset the upstream branch for the new-name local branch.
+Switch to the branch and then:
+git push origin -u new-name
+
+
+Stashing:
+-------------
+git stash - How to Save Your Changes Temporarily
+There are lots of situations where a clean working copy is recommended or even required: when merging branches, when pulling from a remote, or simply when checking out a different branch.
+
+The "git stash" command can help you to (temporarily but safely) store your uncommitted local changes - and leave you with a clean working copy.
+
+git stash: a Clipboard for Your Changes
+
+Let's say you currently have a couple of local modifications:
+
+$ git status
+  modified:   index.php
+  modified:   css/styles.css
+If you have to switch context - e.g. because you need to work on an urgent bug - you need to get these changes out of the way. You shouldn't just commit them, of course, because it's unfinished work.
+
+This is where "git stash" comes in handy:
+
+$ git stash
+Saved working directory and index state WIP on master:
+   2dfe283 Implement the new login box
+HEAD is now at 2dfe283 Implement the new login box
+Your working copy is now clean: all uncommitted local changes have been saved on this kind of "clipboard" that Git's Stash represents. You're ready to start your new task (for example by pulling changes from remote or simply switching branches).
+
+Continuing Where You Left Off
+As already mentioned, Git's Stash is meant as a temporary storage. When you're ready to continue where you left off, you can restore the saved state easily:
+
+$ git stash pop
+The "pop" flag will re-apply the last saved state and, at the same time, delete its representation on the Stash (in other words: it does the clean-up for you).
