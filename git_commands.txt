@@ -2,6 +2,9 @@ to intialize .git where all projects are kept (project directory)
 git init
 git config --global user.name hariday
 git config --global user.email kannoujia.hariday@gmail.com
+git config --global http.sslVerify false
+git config --global http.postBuffer 100000000
+git config --global core.compression 0
 git add <file_name>   #to stage specified file at a time 
 git add . # to add all files in current directory at a time
 git commit -m "commit message"
@@ -89,3 +92,4 @@ As already mentioned, Git's Stash is meant as a temporary storage. When you're r
 
 $ git stash pop
 The "pop" flag will re-apply the last saved state and, at the same time, delete its representation on the Stash (in other words: it does the clean-up for you).
+
